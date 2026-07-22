@@ -1,9 +1,11 @@
 "use client";
+import RequestDemoButton from '@/components/RequestDemoButton';
 // Force rebuild
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import {
+
   Shield, BarChart2, Users, Zap, Cloud,
   Menu, X, Moon, Home as HomeIcon, ShoppingCart, Box, DollarSign, 
   Briefcase, FileText, Settings, Headphones, Search, Bell, 
@@ -109,16 +111,7 @@ export default function Home() {
 
           {/* Right Buttons */}
           <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
-            <button style={{
-              padding: '8px 20px', border: `2px solid ${BLUE}`,
-              borderRadius: '8px', color: BLUE, backgroundColor: 'transparent',
-              fontWeight: '600', cursor: 'pointer', fontSize: '14px'
-            }}>Login</button>
-            <button style={{
-              padding: '8px 20px', backgroundColor: BLUE,
-              border: 'none', borderRadius: '8px', color: WHITE,
-              fontWeight: '600', cursor: 'pointer', fontSize: '14px'
-            }}>Book a Demo</button>
+            <RequestDemoButton />
           </div>
         </div>
       </nav>

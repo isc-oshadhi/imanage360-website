@@ -1,8 +1,10 @@
 "use client";
+import RequestDemoButton from '@/components/RequestDemoButton';
 
 import { LayoutDashboard, ShoppingCart, Package, Users, BarChart3, Shield, CheckCircle, ChevronRight } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+
 
 const NAVY = '#1E3A8A';
 const BLUE = '#2563EB';
@@ -156,16 +158,7 @@ export default function FeaturesPage() {
 
           {/* Right Buttons */}
           <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
-            <button style={{
-              padding: '8px 20px', border: `2px solid ${BLUE}`,
-              borderRadius: '8px', color: BLUE, backgroundColor: 'transparent',
-              fontWeight: '600', cursor: 'pointer', fontSize: '14px',
-            }}>Login</button>
-            <button style={{
-              padding: '8px 20px', backgroundColor: BLUE,
-              border: 'none', borderRadius: '8px', color: WHITE,
-              fontWeight: '600', cursor: 'pointer', fontSize: '14px',
-            }}>Book a Demo</button>
+            <RequestDemoButton />
           </div>
         </div>
       </nav>
