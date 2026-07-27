@@ -18,16 +18,17 @@ const navLinks = [
   { label: 'Features',   href: '/features' },
   { label: 'Modules',    href: '/modules' },
   { label: 'Industries', href: '/industries' },
-  { label: 'Pricing',    href: '/pricing' },
+  { label: 'Plans',      href: '/pricing' },
+  { label: 'FAQ',        href: '/faq' },
   { label: 'About Us',   href: '/about' },
   { label: 'Contact',    href: '/contact' },
 ];
 
 const stats = [
   { value: '2018', label: 'Founded' },
-  { value: '200+', label: 'Clients' },
-  { value: '50+',  label: 'Team Members' },
-  { value: '5+',   label: 'Countries' },
+  { value: 'Qatar', label: 'Headquarters' },
+  { value: 'Growing', label: 'Client Base' },
+  { value: 'Expert',  label: 'Team' },
 ];
 
 const values = [
@@ -103,28 +104,39 @@ function Footer() {
               <span style={{ fontSize: '18px', fontWeight: '800', color: WHITE }}>iManage360</span>
             </div>
             <div style={{ fontSize: '14px', color: 'rgba(255,255,255,0.7)' }}>Innovate. Integrate. Elevate.</div>
-            <div style={{ fontSize: '13px', color: 'rgba(255,255,255,0.6)', lineHeight: '1.7', marginTop: '8px' }}>iManage360 is an all-in-one ERP solution by iTeq Solution Center.</div>
+            <div style={{ fontSize: '13px', color: 'rgba(255,255,255,0.6)', lineHeight: '1.7', marginTop: '8px' }}>iManage360 is an all-in-one, fully customizable ERP solution developed by iTeq Solution Center — built to serve businesses across any country and industry.</div>
           </div>
           <div>
             <div style={{ fontSize: '16px', fontWeight: '700', marginBottom: '16px' }}>Quick Links</div>
-            {['Home', 'Features', 'Modules', 'Pricing', 'About Us', 'Contact'].map((l, i) => (
-              <div key={i} style={{ fontSize: '14px', color: 'rgba(255,255,255,0.7)', marginBottom: '10px', cursor: 'pointer' }}>{l}</div>
+            {[
+              { label: 'Home', href: '/' },
+              { label: 'Features', href: '/features' },
+              { label: 'Modules', href: '/modules' },
+              { label: 'Industries', href: '/industries' },
+              { label: 'Plans', href: '/pricing' },
+              { label: 'FAQ', href: '/faq' },
+              { label: 'About Us', href: '/about' },
+              { label: 'Contact', href: '/contact' },
+            ].map((link, i) => (
+              <Link key={i} href={link.href} style={{ display: 'block', fontSize: '14px', color: 'rgba(255,255,255,0.7)', marginBottom: '10px', textDecoration: 'none' }}>{link.label}</Link>
             ))}
           </div>
           <div>
             <div style={{ fontSize: '16px', fontWeight: '700', marginBottom: '16px' }}>Contact Info</div>
-            <div style={{ fontSize: '13px', color: 'rgba(255,255,255,0.7)', marginBottom: '10px' }}>🌐 iteqsolutioncenter.com</div>
-            <div style={{ fontSize: '13px', color: 'rgba(255,255,255,0.7)', marginBottom: '10px' }}>📞 +94776206033</div>
+            <a href="https://iteqsolutioncenter.com" target="_blank" rel="noopener noreferrer" style={{ display: 'block', fontSize: '13px', color: 'rgba(255,255,255,0.7)', marginBottom: '10px', textDecoration: 'none' }}>Website: iteqsolutioncenter.com</a>
+            <a href="https://wa.me/97450761751" target="_blank" rel="noopener noreferrer" style={{ display: 'block', fontSize: '13px', color: 'rgba(255,255,255,0.7)', marginBottom: '10px', textDecoration: 'none' }}>🇶🇦 Qatar (WhatsApp): +974 5076 1751</a>
+            <a href="https://wa.me/94776206033" target="_blank" rel="noopener noreferrer" style={{ display: 'block', fontSize: '13px', color: 'rgba(255,255,255,0.7)', marginBottom: '10px', textDecoration: 'none' }}>🇱🇰 Sri Lanka (WhatsApp): +94 776 206 033</a>
           </div>
           <div>
             <div style={{ fontSize: '16px', fontWeight: '700', marginBottom: '16px' }}>Follow Us</div>
-            {['LinkedIn', 'Twitter', 'Facebook'].map((l, i) => (
-              <div key={i} style={{ color: 'rgba(255,255,255,0.7)', marginBottom: '10px', fontSize: '14px', cursor: 'pointer' }}>{l}</div>
-            ))}
+            {/* FLAG: Real social URLs not yet provided — placeholder links below */}
+            <a href="#" style={{ display: 'block', color: 'rgba(255,255,255,0.7)', marginBottom: '10px', fontSize: '14px', textDecoration: 'none' }}>LinkedIn</a>
+            <a href="#" style={{ display: 'block', color: 'rgba(255,255,255,0.7)', marginBottom: '10px', fontSize: '14px', textDecoration: 'none' }}>Twitter</a>
+            <a href="#" style={{ display: 'block', color: 'rgba(255,255,255,0.7)', marginBottom: '10px', fontSize: '14px', textDecoration: 'none' }}>Facebook</a>
           </div>
         </div>
         <div style={{ marginTop: '48px', borderTop: '1px solid rgba(255,255,255,0.15)', padding: '24px', textAlign: 'center', fontSize: '13px', color: 'rgba(255,255,255,0.5)' }}>
-          © 2025 iTeq Solution Center. All rights reserved.
+          © 2026 iTeq Solution Center. All rights reserved.
         </div>
       </div>
     </div>
@@ -159,7 +171,7 @@ export default function AboutPage() {
             <span style={{ display: 'inline-block', padding: '4px 14px', backgroundColor: LIGHT_BLUE, color: BLUE, borderRadius: '999px', fontSize: '13px', fontWeight: '600', marginBottom: '16px' }}>Our Story</span>
             <h2 style={{ fontSize: '38px', fontWeight: '800', color: DARK, lineHeight: '1.2', margin: '0 0 20px' }}>Who We Are</h2>
             <p style={{ fontSize: '16px', color: GRAY, lineHeight: '1.8', margin: '0 0 20px' }}>
-              iTeq Solution Center is a leading technology company headquartered in Qatar, specializing in enterprise resource planning, digital transformation, and IT consulting services. Founded in 2018, we have helped 200+ companies across the GCC region streamline their operations and achieve sustainable growth through technology.
+              iTeq Solution Center is a leading technology company headquartered in Qatar, specializing in enterprise resource planning, digital transformation, and IT consulting services. Founded in 2018, we have been helping companies streamline their operations and achieve sustainable growth through technology.
             </p>
             <p style={{ fontSize: '16px', color: GRAY, lineHeight: '1.8', margin: 0 }}>
               Our flagship product, iManage360, is a next-generation all-in-one ERP system designed specifically for the operational complexity of businesses in logistics, construction, healthcare, and professional services.

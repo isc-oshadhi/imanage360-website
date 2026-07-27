@@ -18,7 +18,8 @@ const navLinks = [
   { label: 'Features',   href: '/features' },
   { label: 'Modules',    href: '/modules' },
   { label: 'Industries', href: '/industries' },
-  { label: 'Pricing',    href: '/pricing' },
+  { label: 'Plans',      href: '/pricing' },
+  { label: 'FAQ',        href: '/faq' },
   { label: 'About Us',   href: '/about' },
   { label: 'Contact',    href: '/contact' },
 ];
@@ -62,23 +63,7 @@ const industries = [
   },
 ];
 
-const testimonials = [
-  {
-    quote: 'iManage360 transformed how we manage our fleet operations. We saved 30% in administrative time.',
-    name: 'Ahmed Al-Rashidi',
-    role: 'Operations Director, LogiTrans Qatar',
-  },
-  {
-    quote: 'The HR and payroll module alone was worth the investment. Our payroll errors dropped to zero.',
-    name: 'Sarah Johnson',
-    role: 'HR Manager, BuildCo International',
-  },
-  {
-    quote: 'Real-time dashboards give us insights we never had before. Decision making is now data-driven.',
-    name: 'Khalid Ibrahim',
-    role: 'CEO, RetailMax Group',
-  },
-];
+
 
 export default function IndustriesPage() {
   const pathname = usePathname();
@@ -157,27 +142,22 @@ export default function IndustriesPage() {
         </div>
       </div>
 
-      {/* ─── TESTIMONIALS ─── */}
-      <div style={{ backgroundColor: LIGHT_BLUE, padding: '80px 24px' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <div style={{ textAlign: 'center', marginBottom: '48px' }}>
-            <h2 style={{ fontSize: '36px', fontWeight: '800', color: DARK, margin: '0 0 12px' }}>Trusted by Leading Companies</h2>
-            <p style={{ fontSize: '16px', color: GRAY, margin: 0 }}>Real results from real customers across industries</p>
-          </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '28px' }}>
-            {testimonials.map((t, i) => (
-              <div key={i} style={{ backgroundColor: WHITE, borderRadius: '16px', padding: '36px 32px', boxShadow: '0 4px 20px rgba(0,0,0,0.07)', border: '1px solid #E2E8F0', display: 'flex', flexDirection: 'column', gap: '20px' }}>
-                <div style={{ fontSize: '36px', color: BLUE, lineHeight: 1 }}>"</div>
-                <p style={{ fontSize: '15px', color: DARK, lineHeight: '1.75', margin: 0, fontStyle: 'italic', flexGrow: 1 }}>
-                  {t.quote}
-                </p>
-                <div>
-                  <div style={{ fontSize: '15px', fontWeight: '700', color: NAVY }}>{t.name}</div>
-                  <div style={{ fontSize: '13px', color: GRAY, marginTop: '4px' }}>{t.role}</div>
-                </div>
-              </div>
-            ))}
-          </div>
+      {/* ─── CLOSING SECTION ─── */}
+      <div style={{ backgroundColor: LIGHT_BLUE, padding: '80px 24px', textAlign: 'center' }}>
+        <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+          <h2 style={{ fontSize: '36px', fontWeight: '800', color: NAVY, marginBottom: '24px' }}>
+            One System, Every Industry
+          </h2>
+          <p style={{ fontSize: '18px', color: GRAY, lineHeight: '1.7', marginBottom: '32px' }}>
+            Whatever sector you operate in, iManage360's modular design lets you configure the exact tools your business needs to run smoothly and stay compliant.
+          </p>
+          <Link href="/contact" style={{ textDecoration: 'none' }}>
+            <button style={{
+              padding: '14px 32px', backgroundColor: BLUE,
+              color: WHITE, border: 'none', borderRadius: '8px',
+              fontSize: '16px', fontWeight: '600', cursor: 'pointer',
+            }}>Book a Demo</button>
+          </Link>
         </div>
       </div>
 
@@ -198,28 +178,39 @@ export default function IndustriesPage() {
                 <span style={{ fontSize: '18px', fontWeight: '800', color: WHITE }}>iManage360</span>
               </div>
               <div style={{ fontSize: '14px', color: 'rgba(255,255,255,0.7)' }}>Innovate. Integrate. Elevate.</div>
-              <div style={{ fontSize: '13px', color: 'rgba(255,255,255,0.6)', lineHeight: '1.7', marginTop: '8px' }}>iManage360 is an all-in-one ERP solution by iTeq Solution Center.</div>
+              <div style={{ fontSize: '13px', color: 'rgba(255,255,255,0.6)', lineHeight: '1.7', marginTop: '8px' }}>iManage360 is an all-in-one, fully customizable ERP solution developed by iTeq Solution Center — built to serve businesses across any country and industry.</div>
             </div>
             <div>
               <div style={{ fontSize: '16px', fontWeight: '700', marginBottom: '16px' }}>Quick Links</div>
-              {['Home', 'Features', 'Modules', 'Pricing', 'About Us', 'Contact'].map((l, i) => (
-                <div key={i} style={{ fontSize: '14px', color: 'rgba(255,255,255,0.7)', marginBottom: '10px', cursor: 'pointer' }}>{l}</div>
+              {[
+                { label: 'Home', href: '/' },
+                { label: 'Features', href: '/features' },
+                { label: 'Modules', href: '/modules' },
+                { label: 'Industries', href: '/industries' },
+                { label: 'Plans', href: '/pricing' },
+                { label: 'FAQ', href: '/faq' },
+                { label: 'About Us', href: '/about' },
+                { label: 'Contact', href: '/contact' },
+              ].map((link, i) => (
+                <Link key={i} href={link.href} style={{ display: 'block', fontSize: '14px', color: 'rgba(255,255,255,0.7)', marginBottom: '10px', textDecoration: 'none' }}>{link.label}</Link>
               ))}
             </div>
             <div>
               <div style={{ fontSize: '16px', fontWeight: '700', marginBottom: '16px' }}>Contact Info</div>
-              <div style={{ fontSize: '13px', color: 'rgba(255,255,255,0.7)', marginBottom: '10px' }}>🌐 iteqsolutioncenter.com</div>
-              <div style={{ fontSize: '13px', color: 'rgba(255,255,255,0.7)', marginBottom: '10px' }}>📞 +94776206033</div>
+              <a href="https://iteqsolutioncenter.com" target="_blank" rel="noopener noreferrer" style={{ display: 'block', fontSize: '13px', color: 'rgba(255,255,255,0.7)', marginBottom: '10px', textDecoration: 'none' }}>Website: iteqsolutioncenter.com</a>
+              <a href="https://wa.me/97450761751" target="_blank" rel="noopener noreferrer" style={{ display: 'block', fontSize: '13px', color: 'rgba(255,255,255,0.7)', marginBottom: '10px', textDecoration: 'none' }}>🇶🇦 Qatar (WhatsApp): +974 5076 1751</a>
+              <a href="https://wa.me/94776206033" target="_blank" rel="noopener noreferrer" style={{ display: 'block', fontSize: '13px', color: 'rgba(255,255,255,0.7)', marginBottom: '10px', textDecoration: 'none' }}>🇱🇰 Sri Lanka (WhatsApp): +94 776 206 033</a>
             </div>
             <div>
               <div style={{ fontSize: '16px', fontWeight: '700', marginBottom: '16px' }}>Follow Us</div>
-              {['LinkedIn', 'Twitter', 'Facebook'].map((l, i) => (
-                <div key={i} style={{ color: 'rgba(255,255,255,0.7)', marginBottom: '10px', fontSize: '14px', cursor: 'pointer' }}>{l}</div>
-              ))}
+              {/* FLAG: Real social URLs not yet provided — placeholder links below */}
+              <a href="#" style={{ display: 'block', color: 'rgba(255,255,255,0.7)', marginBottom: '10px', fontSize: '14px', textDecoration: 'none' }}>LinkedIn</a>
+              <a href="#" style={{ display: 'block', color: 'rgba(255,255,255,0.7)', marginBottom: '10px', fontSize: '14px', textDecoration: 'none' }}>Twitter</a>
+              <a href="#" style={{ display: 'block', color: 'rgba(255,255,255,0.7)', marginBottom: '10px', fontSize: '14px', textDecoration: 'none' }}>Facebook</a>
             </div>
           </div>
           <div style={{ marginTop: '48px', borderTop: '1px solid rgba(255,255,255,0.15)', padding: '24px', textAlign: 'center', fontSize: '13px', color: 'rgba(255,255,255,0.5)' }}>
-            © 2025 iTeq Solution Center. All rights reserved.
+            © 2026 iTeq Solution Center. All rights reserved.
           </div>
         </div>
       </div>
