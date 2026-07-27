@@ -2,8 +2,8 @@
 import RequestDemoButton from '@/components/RequestDemoButton';
 
 import {
-  ShoppingCart, Truck, Package, DollarSign, Users, Briefcase,
-  MessageSquare, Car, Building, FileText, BarChart3, Settings, CheckCircle
+  ShoppingCart, Truck, Package, DollarSign, Users,
+  Car, Building, FileText, BarChart3, Settings, CheckCircle
 } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -21,24 +21,23 @@ const navLinks = [
   { label: 'Features',   href: '/features' },
   { label: 'Modules',    href: '/modules' },
   { label: 'Industries', href: '/industries' },
-  { label: 'Pricing',    href: '/pricing' },
+  { label: 'Plans',      href: '/pricing' },
+  { label: 'FAQ',        href: '/faq' },
   { label: 'About Us',   href: '/about' },
   { label: 'Contact',    href: '/contact' },
 ];
 
 const modules = [
-  { icon: ShoppingCart, name: 'Sales Management',      desc: 'Quotes, orders, invoicing, CRM and customer management.' },
-  { icon: Truck,        name: 'Purchase Management',   desc: 'Supplier management, PO creation, and procurement workflows.' },
-  { icon: Package,      name: 'Inventory Management',  desc: 'Multi-warehouse stock tracking, transfers, and valuations.' },
-  { icon: DollarSign,   name: 'Finance & Accounting',  desc: 'GL, AP, AR, bank reconciliation, and financial reporting.' },
-  { icon: Users,        name: 'HR & Payroll',          desc: 'Employee records, payroll, leave, attendance, and recruitment.' },
-  { icon: Briefcase,    name: 'Project Management',    desc: 'Task tracking, milestones, resource allocation, and timelines.' },
-  { icon: MessageSquare,name: 'CRM',                   desc: 'Lead management, pipeline tracking, and customer 360° view.' },
-  { icon: Car,          name: 'Fleet Management',      desc: 'Vehicle tracking, maintenance, fuel, and driver management.' },
-  { icon: Building,     name: 'Fixed Assets',          desc: 'Asset registration, depreciation, transfers, and disposals.' },
-  { icon: FileText,     name: 'Bill & Payroll',        desc: 'Billing records, payroll drafts, verification, and approvals.' },
-  { icon: BarChart3,    name: 'Reports & Analytics',   desc: 'Real-time dashboards, custom reports, and Excel/PDF exports.' },
-  { icon: Settings,     name: 'System Settings',       desc: 'User roles, permissions, integrations, and configurations.' },
+  { icon: ShoppingCart, name: 'Sales & CRM',           href: '/contact?module=sales-crm',              desc: 'Quotes, orders, invoicing, lead management, and customer 360° tracking in one place.' },
+  { icon: Truck,        name: 'Procurement',           href: '/contact?module=procurement',            desc: 'Supplier management, purchase order creation, and end-to-end procurement workflows.' },
+  { icon: Package,      name: 'Inventory Management',  href: '/contact?module=inventory-management',   desc: 'Multi-warehouse stock tracking, transfers, and real-time valuations.' },
+  { icon: DollarSign,   name: 'Accounts & Finance',    href: '/contact?module=accounts-finance',       desc: 'General ledger, accounts payable and receivable, bank reconciliation, and financial reporting.' },
+  { icon: Users,        name: 'HR & Payroll',          href: '/contact?module=hr-payroll',             desc: 'Employee records, payroll processing, leave, attendance, and recruitment.' },
+  { icon: FileText,     name: 'Invoicing',             href: '/contact?module=invoicing',              desc: 'Create, send, and track invoices with automated billing and payment reminders.' },
+  { icon: Building,     name: 'Fixed Assets',          href: '/contact?module=fixed-assets',          desc: 'Asset registration, depreciation tracking, transfers, and disposals.' },
+  { icon: Car,          name: 'Fleet Management',      href: '/contact?module=fleet-management',       desc: 'Vehicle tracking, maintenance schedules, fuel logs, and driver management.' },
+  { icon: BarChart3,    name: 'Reports & Analytics',   href: '/contact?module=reports-analytics',     desc: 'Real-time dashboards, custom reports, and Excel/PDF exports across every module.' },
+  { icon: Settings,     name: 'System Settings',       href: '/contact?module=system-settings',        desc: 'User roles, permissions, integrations, and system-wide configuration.' },
 ];
 
 export default function ModulesPage() {
@@ -86,7 +85,7 @@ export default function ModulesPage() {
             Explore Our Modules
           </h1>
           <p style={{ fontSize: '18px', color: GRAY, lineHeight: '1.7', margin: '0 0 32px' }}>
-            A complete suite of modules designed to cover every aspect of your business operations.
+            A complete suite of customizable modules designed to cover every aspect of your business operations. Activate only what you need.
           </p>
         </div>
       </div>
@@ -104,9 +103,9 @@ export default function ModulesPage() {
                   </div>
                   <div style={{ fontSize: '18px', fontWeight: '700', color: DARK, marginBottom: '10px' }}>{mod.name}</div>
                   <div style={{ fontSize: '14px', color: GRAY, lineHeight: '1.6', flexGrow: 1, marginBottom: '20px' }}>{mod.desc}</div>
-                  <a href="#" style={{ color: BLUE, fontWeight: '600', fontSize: '14px', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  <Link href={mod.href} style={{ color: BLUE, fontWeight: '600', fontSize: '14px', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '4px' }}>
                     Learn More →
-                  </a>
+                  </Link>
                 </div>
               );
             })}
@@ -121,11 +120,13 @@ export default function ModulesPage() {
             Need a Custom Module?
           </h2>
           <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.75)', margin: '0 0 32px' }}>
-            Contact us for enterprise solutions tailored to your exact business needs.
+            Every business is different. If you need something beyond our standard modules, our team can build it for you.
           </p>
-          <button style={{ padding: '14px 32px', backgroundColor: WHITE, color: NAVY, border: 'none', borderRadius: '8px', fontSize: '16px', fontWeight: '700', cursor: 'pointer' }}>
-            Contact Sales
-          </button>
+          <Link href="/contact" style={{ textDecoration: 'none' }}>
+            <button style={{ padding: '14px 32px', backgroundColor: WHITE, color: NAVY, border: 'none', borderRadius: '8px', fontSize: '16px', fontWeight: '700', cursor: 'pointer' }}>
+              Contact Sales
+            </button>
+          </Link>
         </div>
       </div>
 
@@ -146,28 +147,39 @@ export default function ModulesPage() {
                 <span style={{ fontSize: '18px', fontWeight: '800', color: WHITE }}>iManage360</span>
               </div>
               <div style={{ fontSize: '14px', color: 'rgba(255,255,255,0.7)' }}>Innovate. Integrate. Elevate.</div>
-              <div style={{ fontSize: '13px', color: 'rgba(255,255,255,0.6)', lineHeight: '1.7', marginTop: '8px' }}>iManage360 is an all-in-one ERP solution by iTeq Solution Center.</div>
+              <div style={{ fontSize: '13px', color: 'rgba(255,255,255,0.6)', lineHeight: '1.7', marginTop: '8px' }}>iManage360 is an all-in-one, fully customizable ERP solution developed by iTeq Solution Center — built to serve businesses across any country and industry.</div>
             </div>
             <div>
               <div style={{ fontSize: '16px', fontWeight: '700', marginBottom: '16px' }}>Quick Links</div>
-              {['Home', 'Features', 'Modules', 'Pricing', 'About Us', 'Contact'].map((l, i) => (
-                <div key={i} style={{ fontSize: '14px', color: 'rgba(255,255,255,0.7)', marginBottom: '10px', cursor: 'pointer' }}>{l}</div>
+              {[
+                { label: 'Home', href: '/' },
+                { label: 'Features', href: '/features' },
+                { label: 'Modules', href: '/modules' },
+                { label: 'Industries', href: '/industries' },
+                { label: 'Plans', href: '/pricing' },
+                { label: 'FAQ', href: '/faq' },
+                { label: 'About Us', href: '/about' },
+                { label: 'Contact', href: '/contact' },
+              ].map((link, i) => (
+                <Link key={i} href={link.href} style={{ display: 'block', fontSize: '14px', color: 'rgba(255,255,255,0.7)', marginBottom: '10px', textDecoration: 'none' }}>{link.label}</Link>
               ))}
             </div>
             <div>
               <div style={{ fontSize: '16px', fontWeight: '700', marginBottom: '16px' }}>Contact Info</div>
-              <div style={{ fontSize: '13px', color: 'rgba(255,255,255,0.7)', marginBottom: '10px' }}>🌐 iteqsolutioncenter.com</div>
-              <div style={{ fontSize: '13px', color: 'rgba(255,255,255,0.7)', marginBottom: '10px' }}>📞 +94776206033</div>
+              <a href="https://iteqsolutioncenter.com" target="_blank" rel="noopener noreferrer" style={{ display: 'block', fontSize: '13px', color: 'rgba(255,255,255,0.7)', marginBottom: '10px', textDecoration: 'none' }}>Website: iteqsolutioncenter.com</a>
+              <a href="https://wa.me/97450761751" target="_blank" rel="noopener noreferrer" style={{ display: 'block', fontSize: '13px', color: 'rgba(255,255,255,0.7)', marginBottom: '10px', textDecoration: 'none' }}>🇶🇦 Qatar (WhatsApp): +974 5076 1751</a>
+              <a href="https://wa.me/94776206033" target="_blank" rel="noopener noreferrer" style={{ display: 'block', fontSize: '13px', color: 'rgba(255,255,255,0.7)', marginBottom: '10px', textDecoration: 'none' }}>🇱🇰 Sri Lanka (WhatsApp): +94 776 206 033</a>
             </div>
             <div>
               <div style={{ fontSize: '16px', fontWeight: '700', marginBottom: '16px' }}>Follow Us</div>
-              {['LinkedIn', 'Twitter', 'Facebook'].map((l, i) => (
-                <div key={i} style={{ color: 'rgba(255,255,255,0.7)', marginBottom: '10px', fontSize: '14px', cursor: 'pointer' }}>{l}</div>
-              ))}
+              {/* FLAG: Real social URLs not yet provided — placeholder links below */}
+              <a href="#" style={{ display: 'block', color: 'rgba(255,255,255,0.7)', marginBottom: '10px', fontSize: '14px', textDecoration: 'none' }}>LinkedIn</a>
+              <a href="#" style={{ display: 'block', color: 'rgba(255,255,255,0.7)', marginBottom: '10px', fontSize: '14px', textDecoration: 'none' }}>Twitter</a>
+              <a href="#" style={{ display: 'block', color: 'rgba(255,255,255,0.7)', marginBottom: '10px', fontSize: '14px', textDecoration: 'none' }}>Facebook</a>
             </div>
           </div>
           <div style={{ marginTop: '48px', borderTop: '1px solid rgba(255,255,255,0.15)', padding: '24px', textAlign: 'center', fontSize: '13px', color: 'rgba(255,255,255,0.5)' }}>
-            © 2025 iTeq Solution Center. All rights reserved.
+            © 2026 iTeq Solution Center. All rights reserved.
           </div>
         </div>
       </div>

@@ -18,7 +18,8 @@ const navLinks = [
   { label: 'Features',   href: '/features' },
   { label: 'Modules',    href: '/modules' },
   { label: 'Industries', href: '/industries' },
-  { label: 'Pricing',    href: '/pricing' },
+  { label: 'Plans',      href: '/pricing' },
+  { label: 'FAQ',        href: '/faq' },
   { label: 'About Us',   href: '/about' },
   { label: 'Contact',    href: '/contact' },
 ];
@@ -53,7 +54,7 @@ export default function FeaturesPage() {
     },
     {
       icon: Shield,
-      title: 'Role-based Security',
+      title: 'Role-Based Security',
       desc: 'Control who sees what with granular permission settings per user, role, and module.',
     },
   ];
@@ -190,11 +191,13 @@ export default function FeaturesPage() {
             Everything your team needs to manage operations, finances, HR, and more — all in one platform.
           </p>
 
-          <button style={{
-            padding: '14px 32px', backgroundColor: BLUE,
-            color: WHITE, border: 'none', borderRadius: '8px',
-            fontSize: '16px', fontWeight: '600', cursor: 'pointer',
-          }}>Book a Demo →</button>
+          <Link href="/contact" style={{ textDecoration: 'none' }}>
+            <button style={{
+              padding: '14px 32px', backgroundColor: BLUE,
+              color: WHITE, border: 'none', borderRadius: '8px',
+              fontSize: '16px', fontWeight: '600', cursor: 'pointer',
+            }}>Book a Demo →</button>
+          </Link>
         </div>
       </div>
 
@@ -313,7 +316,7 @@ export default function FeaturesPage() {
               </p>
               {checkItem('Automated bank reconciliation')}
               {checkItem('Multi-currency support')}
-              {checkItem('Audit-ready financial reports')}
+              {checkItem('Real-time financial dashboards')}
             </div>
 
             {/* Finance Mockup */}
@@ -432,20 +435,24 @@ export default function FeaturesPage() {
             Ready to Transform Your Business?
           </h2>
           <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.7)', marginBottom: '32px' }}>
-            Join 200+ companies already using iManage360.
+            See how iManage360 can bring every part of your operation into one system.
           </p>
           <div style={{ display: 'flex', gap: '16px', justifyContent: 'center' }}>
-            <button style={{
-              padding: '14px 28px', backgroundColor: WHITE,
-              color: NAVY, border: 'none', borderRadius: '8px',
-              fontSize: '16px', fontWeight: '700', cursor: 'pointer',
-            }}>Get Started Free</button>
-            <button style={{
-              padding: '14px 28px', backgroundColor: 'transparent',
-              color: WHITE, border: '2px solid rgba(255,255,255,0.5)',
-              borderRadius: '8px', fontSize: '16px',
-              fontWeight: '600', cursor: 'pointer',
-            }}>Schedule a Demo</button>
+            <Link href="/contact" style={{ textDecoration: 'none' }}>
+              <button style={{
+                padding: '14px 28px', backgroundColor: WHITE,
+                color: NAVY, border: 'none', borderRadius: '8px',
+                fontSize: '16px', fontWeight: '700', cursor: 'pointer',
+              }}>Get Started</button>
+            </Link>
+            <Link href="/contact" style={{ textDecoration: 'none' }}>
+              <button style={{
+                padding: '14px 28px', backgroundColor: 'transparent',
+                color: WHITE, border: '2px solid rgba(255,255,255,0.5)',
+                borderRadius: '8px', fontSize: '16px',
+                fontWeight: '600', cursor: 'pointer',
+              }}>Schedule a Demo</button>
+            </Link>
           </div>
         </div>
       </div>
@@ -477,49 +484,48 @@ export default function FeaturesPage() {
                 Innovate. Integrate. Elevate.
               </div>
               <div style={{ fontSize: '13px', color: 'rgba(255,255,255,0.6)', lineHeight: '1.7', marginTop: '8px' }}>
-                iManage360 is an all-in-one ERP solution by iTeq Solution Center.
+                iManage360 is an all-in-one, fully customizable ERP solution developed by iTeq Solution Center — built to serve businesses across any country and industry.
               </div>
             </div>
 
             {/* Col 2 */}
             <div>
               <div style={{ fontSize: '16px', fontWeight: '700', marginBottom: '16px' }}>Quick Links</div>
-              {['Home', 'Features', 'Modules', 'Pricing', 'About Us', 'Contact'].map((l, i) => (
-                <div key={i} style={{ fontSize: '14px', color: 'rgba(255,255,255,0.7)', marginBottom: '10px', cursor: 'pointer' }}>{l}</div>
+              {[
+                { label: 'Home', href: '/' },
+                { label: 'Features', href: '/features' },
+                { label: 'Modules', href: '/modules' },
+                { label: 'Industries', href: '/industries' },
+                { label: 'Plans', href: '/pricing' },
+                { label: 'FAQ', href: '/faq' },
+                { label: 'About Us', href: '/about' },
+                { label: 'Contact', href: '/contact' },
+              ].map((link, i) => (
+                <Link key={i} href={link.href} style={{ display: 'block', fontSize: '14px', color: 'rgba(255,255,255,0.7)', marginBottom: '10px', textDecoration: 'none' }}>{link.label}</Link>
               ))}
             </div>
 
             {/* Col 3 */}
             <div>
               <div style={{ fontSize: '16px', fontWeight: '700', marginBottom: '16px' }}>Contact Info</div>
-              <div style={{ fontSize: '13px', color: 'rgba(255,255,255,0.7)', marginBottom: '10px', display: 'flex', gap: '8px', alignItems: 'center' }}>
-                🌐 iteqsolutioncenter.com
-              </div>
-              <div style={{ fontSize: '13px', color: 'rgba(255,255,255,0.7)', marginBottom: '10px', display: 'flex', gap: '8px', alignItems: 'center' }}>
-                📞 +94776206033
-              </div>
+              <a href="https://iteqsolutioncenter.com" target="_blank" rel="noopener noreferrer" style={{ display: 'block', fontSize: '13px', color: 'rgba(255,255,255,0.7)', marginBottom: '10px', textDecoration: 'none' }}>Website: iteqsolutioncenter.com</a>
+              <a href="https://wa.me/97450761751" target="_blank" rel="noopener noreferrer" style={{ display: 'block', fontSize: '13px', color: 'rgba(255,255,255,0.7)', marginBottom: '10px', textDecoration: 'none' }}>🇶🇦 Qatar (WhatsApp): +974 5076 1751</a>
+              <a href="https://wa.me/94776206033" target="_blank" rel="noopener noreferrer" style={{ display: 'block', fontSize: '13px', color: 'rgba(255,255,255,0.7)', marginBottom: '10px', textDecoration: 'none' }}>🇱🇰 Sri Lanka (WhatsApp): +94 776 206 033</a>
             </div>
 
             {/* Col 4 */}
             <div>
               <div style={{ fontSize: '16px', fontWeight: '700', marginBottom: '16px' }}>Follow Us</div>
-              {['LinkedIn', 'Twitter', 'Facebook'].map((l, i) => (
-                <div key={i} style={{
-                  display: 'flex', gap: '8px', alignItems: 'center',
-                  color: 'rgba(255,255,255,0.7)', marginBottom: '10px',
-                  fontSize: '14px', cursor: 'pointer',
-                }}>{l}</div>
-              ))}
+              {/* FLAG: Real social URLs not yet provided — placeholder links below */}
+              <a href="#" style={{ display: 'block', color: 'rgba(255,255,255,0.7)', marginBottom: '10px', fontSize: '14px', textDecoration: 'none' }}>LinkedIn</a>
+              <a href="#" style={{ display: 'block', color: 'rgba(255,255,255,0.7)', marginBottom: '10px', fontSize: '14px', textDecoration: 'none' }}>Twitter</a>
+              <a href="#" style={{ display: 'block', color: 'rgba(255,255,255,0.7)', marginBottom: '10px', fontSize: '14px', textDecoration: 'none' }}>Facebook</a>
             </div>
           </div>
 
           {/* Bottom bar */}
-          <div style={{
-            marginTop: '48px', borderTop: '1px solid rgba(255,255,255,0.15)',
-            padding: '24px', textAlign: 'center',
-            fontSize: '13px', color: 'rgba(255,255,255,0.5)',
-          }}>
-            © 2025 iTeq Solution Center. All rights reserved.
+          <div style={{ marginTop: '48px', borderTop: '1px solid rgba(255,255,255,0.15)', padding: '24px', textAlign: 'center', fontSize: '13px', color: 'rgba(255,255,255,0.5)' }}>
+            © 2026 iTeq Solution Center. All rights reserved.
           </div>
         </div>
       </div>

@@ -39,7 +39,8 @@ export default function Home() {
     { label: 'Features',   href: '/features' },
     { label: 'Modules',    href: '/modules' },
     { label: 'Industries', href: '/industries' },
-    { label: 'Pricing',    href: '/pricing' },
+    { label: 'Plans',      href: '/pricing' },
+    { label: 'FAQ',        href: '/faq' },
     { label: 'About Us',   href: '/about' },
     { label: 'Contact',    href: '/contact' },
   ];
@@ -150,38 +151,37 @@ export default function Home() {
               backgroundColor: LIGHT_BLUE, color: BLUE,
               borderRadius: '999px', fontSize: '14px', fontWeight: '500',
               width: 'fit-content'
-            }}>Smart. Simple. Powerful.</div>
+            }}>All-in-One ERP Solution</div>
             
-            <h1 style={{ fontSize: '72px', fontWeight: '800', lineHeight: '1.1', margin: 0 }}>
-              <span style={{ color: NAVY }}>iManage</span>
-              <span style={{ color: BLUE }}>360</span>
+            <h1 style={{ fontSize: '56px', fontWeight: '800', lineHeight: '1.1', margin: 0, color: NAVY }}>
+              One Platform.<br />
+              <span style={{ color: BLUE }}>Every Department.</span><br />
+              Total Control.
             </h1>
             
-            <p style={{ fontSize: '24px', fontWeight: '600', color: DARK, margin: 0 }}>
-              All-in-One ERP Solution for Your Business Growth
-            </p>
-            
             <p style={{
-              fontSize: '16px', color: GRAY, lineHeight: '1.7',
+              fontSize: '18px', color: GRAY, lineHeight: '1.7',
               maxWidth: '480px', margin: 0
             }}>
-              iManage360 is a next-generation ERP system that helps you
-              streamline operations, improve productivity, and make smarter
-              business decisions.
+              iManage360 brings HR, Finance, Sales, Inventory, Assets, Fleet, and Procurement together in a single, fully customizable ERP — built for businesses of any size, in any country.
             </p>
             
             <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-              <button style={{
-                padding: '14px 28px', backgroundColor: BLUE, color: WHITE,
-                border: 'none', borderRadius: '8px', fontSize: '16px',
-                fontWeight: '600', cursor: 'pointer'
-              }}>Get Started →</button>
-              <button style={{
-                padding: '14px 28px', backgroundColor: 'transparent',
-                color: BLUE, border: `2px solid ${BLUE}`,
-                borderRadius: '8px', fontSize: '16px',
-                fontWeight: '600', cursor: 'pointer'
-              }}>Explore Features ⊞</button>
+              <Link href="/contact" style={{ textDecoration: 'none' }}>
+                <button style={{
+                  padding: '14px 28px', backgroundColor: BLUE, color: WHITE,
+                  border: 'none', borderRadius: '8px', fontSize: '16px',
+                  fontWeight: '600', cursor: 'pointer'
+                }}>Book a Demo →</button>
+              </Link>
+              <Link href="/modules" style={{ textDecoration: 'none' }}>
+                <button style={{
+                  padding: '14px 28px', backgroundColor: 'transparent',
+                  color: BLUE, border: `2px solid ${BLUE}`,
+                  borderRadius: '8px', fontSize: '16px',
+                  fontWeight: '600', cursor: 'pointer'
+                }}>Explore Modules</button>
+              </Link>
             </div>
           </div>
 
@@ -245,14 +245,14 @@ export default function Home() {
                       <div style={{ flex: 1 }}>
                         {[
                           { label: 'Dashboard', icon: HomeIcon, active: true },
-                          { label: 'Sales', icon: ShoppingBag, active: false },
-                          { label: 'Purchases', icon: ShoppingCart, active: false },
+                          { label: 'Sales CRM', icon: ShoppingBag, active: false },
+                          { label: 'Procurement', icon: ShoppingCart, active: false },
                           { label: 'Inventory', icon: Box, active: false },
                           { label: 'Finance', icon: DollarSign, active: false },
-                          { label: 'HR & Payroll', icon: Users, active: false },
-                          { label: 'Projects', icon: Briefcase, active: false },
-                          { label: 'CRM', icon: Users, active: false },
-                          { label: 'Reports', icon: FileText, active: false },
+                          { label: 'HR Mgmt', icon: Users, active: false },
+                          { label: 'Invoicing', icon: FileText, active: false },
+                          { label: 'Fleet Mgmt', icon: Briefcase, active: false },
+                          { label: 'Fixed Assets', icon: FileText, active: false },
                           { label: 'Settings', icon: Settings, active: false },
                         ].map((item, i) => (
                           <div key={i} style={{
@@ -576,12 +576,12 @@ export default function Home() {
                     <div style={{ fontSize: '9px', fontWeight: '700', color: DARK, marginBottom: '6px' }}>Modules</div>
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '6px' }}>
                       {[
-                        { l: 'Sales', ic: ShoppingBag, c: BLUE, bg: '#EFF6FF' },
-                        { l: 'Purchases', ic: ShoppingCart, c: '#f97316', bg: '#fff7ed' },
+                        { l: 'Sales CRM', ic: ShoppingBag, c: BLUE, bg: '#EFF6FF' },
+                        { l: 'Procurement', ic: ShoppingCart, c: '#f97316', bg: '#fff7ed' },
                         { l: 'Inventory', ic: Box, c: '#16a34a', bg: '#F0FDF4' },
                         { l: 'Finance', ic: DollarSign, c: '#a855f7', bg: '#faf5ff' },
-                        { l: 'HR & Payroll', ic: Users, c: '#ef4444', bg: '#FEF2F2' },
-                        { l: 'Reports', ic: FileText, c: '#0891b2', bg: '#ecfeff' },
+                        { l: 'HR Mgmt', ic: Users, c: '#ef4444', bg: '#FEF2F2' },
+                        { l: 'Invoicing', ic: FileText, c: '#0891b2', bg: '#ecfeff' },
                       ].map((item, idx) => (
                         <div key={idx} style={{ backgroundColor: WHITE, borderRadius: '6px', padding: '6px', border: '1px solid #E2E8F0', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px' }}>
                           <div style={{ width: '20px', height: '20px', borderRadius: '4px', backgroundColor: item.bg, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -631,18 +631,24 @@ export default function Home() {
         </div>
       </div>
 
-      {/* SECTION 3 — FEATURE HIGHLIGHT STRIP */}
-      <div id="features" style={{ backgroundColor: LIGHT_BLUE, padding: '64px 24px' }}>
+      {/* SECTION 3 — VALUE PROPOSITION */}
+      <div id="features" style={{ backgroundColor: LIGHT_BLUE, padding: '80px 24px 64px' }}>
+        <div style={{ maxWidth: '1000px', margin: '0 auto', textAlign: 'center', marginBottom: '48px' }}>
+          <h2 style={{ fontSize: '40px', fontWeight: '800', color: NAVY, marginBottom: '24px' }}>Built for the Way You Work</h2>
+          <p style={{ fontSize: '18px', color: GRAY, lineHeight: '1.7', maxWidth: '800px', margin: '0 auto' }}>
+            Every business runs differently — iManage360 is designed to adapt, not the other way around. Choose the modules you need, configure them to match your workflows, and scale up as your business grows. No rigid templates, no unnecessary complexity.
+          </p>
+        </div>
         <div style={{
           maxWidth: '1280px', margin: '0 auto',
-          display: 'grid', gridTemplateColumns: 'repeat(5,1fr)', gap: '24px'
+          display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px'
         }}>
           {[
-            { i: Shield, t: "All-in-One Solution", d: "Manage all your business processes in one place." },
-            { i: BarChart2, t: "Real-time Insights", d: "Get real-time reports and dashboards for better decisions." },
-            { i: Users, t: "Role-based Access", d: "Secure your data with advanced user roles and permissions." },
-            { i: Zap, t: "Scalable & Flexible", d: "Grow your business without limits, iManage360 grows with you." },
-            { i: Cloud, t: "Cloud Enabled", d: "Access your business from anywhere, anytime." }
+            { i: Settings, t: "Fully Customizable", d: "Turn modules on or off based on what your business actually needs" },
+            { i: Briefcase, t: "Built for Any Industry", d: "From retail to logistics, healthcare to professional services" },
+            { i: Cloud, t: "Cloud-Based Access", d: "Manage your business from anywhere, on any device" },
+            { i: Shield, t: "Secure & Role-Based", d: "Granular permissions keep your data protected" },
+            { i: Zap, t: "Local Support, Global Reach", d: "Backed by a team that understands businesses across regions" }
           ].map((f, i) => (
             <div key={i} style={{
               backgroundColor: WHITE, borderRadius: '12px', padding: '24px',
@@ -658,15 +664,15 @@ export default function Home() {
                 <f.i color={BLUE} size={22} />
               </div>
               <div style={{ flex: 1 }}>
-                <div style={{ fontSize: '15px', fontWeight: '700', color: DARK, marginBottom: '6px' }}>{f.t}</div>
-                <div style={{ fontSize: '13px', color: GRAY, lineHeight: '1.6', margin: 0 }}>{f.d}</div>
+                <div style={{ fontSize: '16px', fontWeight: '700', color: DARK, marginBottom: '8px' }}>{f.t}</div>
+                <div style={{ fontSize: '14px', color: GRAY, lineHeight: '1.6', margin: 0 }}>{f.d}</div>
               </div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* SECTION 4 — STATS COUNTER with wave top */}
+      {/* SECTION 4 — CLOSING CTA */}
       <div style={{ backgroundColor: WHITE, position: 'relative', paddingBottom: '0' }}>
         {/* Wave SVG transitioning from LIGHT_BLUE to WHITE */}
         <div style={{ lineHeight: 0, backgroundColor: LIGHT_BLUE }}>
@@ -675,33 +681,38 @@ export default function Home() {
           </svg>
         </div>
 
-        {/* Stats card */}
-        <div id="modules" style={{ padding: '0 24px 64px' }}>
+        {/* CTA Card */}
+        <div style={{ padding: '0 24px 64px' }}>
           <div style={{
             maxWidth: '1000px', margin: '0 auto',
             backgroundColor: WHITE,
             borderRadius: '16px',
             boxShadow: '0 4px 24px rgba(0,0,0,0.08)',
             border: '1px solid #E2E8F0',
-            display: 'grid', gridTemplateColumns: 'repeat(4,1fr)'
+            padding: '48px',
+            textAlign: 'center'
           }}>
-            {[
-              { n: '200+', l: 'Happy Clients', icon: true },
-              { n: '50+', l: 'Business Modules', icon: false },
-              { n: '10K+', l: 'Users', icon: false },
-              { n: '99.9%', l: 'Uptime & Reliability', icon: false }
-            ].map((s, i) => (
-              <div key={i} style={{
-                textAlign: 'center', padding: '36px 24px',
-                borderRight: i < 3 ? '1px solid #E2E8F0' : 'none',
-                display: 'flex', flexDirection: 'column',
-                alignItems: 'center', justifyContent: 'center'
-              }}>
-                {s.icon && <Users size={34} style={{ color: BLUE, marginBottom: '10px' }} />}
-                <div style={{ fontSize: '52px', fontWeight: '800', color: BLUE, lineHeight: 1 }}>{s.n}</div>
-                <div style={{ fontSize: '15px', color: GRAY, marginTop: '8px' }}>{s.l}</div>
-              </div>
-            ))}
+            <h2 style={{ fontSize: '36px', fontWeight: '800', color: NAVY, marginBottom: '16px' }}>Ready to Simplify How You Run Your Business?</h2>
+            <p style={{ fontSize: '18px', color: GRAY, marginBottom: '32px' }}>
+              Talk to our team and see how iManage360 can be tailored to your operations.
+            </p>
+            <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
+              <Link href="/contact" style={{ textDecoration: 'none' }}>
+                <button style={{
+                  padding: '14px 28px', backgroundColor: BLUE, color: WHITE,
+                  border: 'none', borderRadius: '8px', fontSize: '16px',
+                  fontWeight: '600', cursor: 'pointer'
+                }}>Book a Demo</button>
+              </Link>
+              <Link href="/contact" style={{ textDecoration: 'none' }}>
+                <button style={{
+                  padding: '14px 28px', backgroundColor: 'transparent',
+                  color: BLUE, border: `2px solid ${BLUE}`,
+                  borderRadius: '8px', fontSize: '16px',
+                  fontWeight: '600', cursor: 'pointer'
+                }}>Contact Sales</button>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
@@ -747,52 +758,51 @@ export default function Home() {
                 Innovate. Integrate. Elevate.
               </div>
               <div style={{ fontSize: '13px', color: 'rgba(255,255,255,0.6)', lineHeight: '1.7', marginTop: '8px' }}>
-                iManage360 is an all-in-one ERP solution by iTeq Solution Center.
+                iManage360 is an all-in-one, fully customizable ERP solution developed by iTeq Solution Center — built to serve businesses across any country and industry.
               </div>
             </div>
 
             {/* Col 2 */}
             <div>
               <div style={{ fontSize: '16px', fontWeight: '700', marginBottom: '16px' }}>Quick Links</div>
-              {['Home', 'Features', 'Modules', 'Pricing', 'About Us', 'Contact'].map((l, i) => (
-                <div key={i} style={{
-                  fontSize: '14px', color: 'rgba(255,255,255,0.7)',
-                  marginBottom: '10px', cursor: 'pointer'
-                }}>{l}</div>
+              {[
+                { label: 'Home', href: '/' },
+                { label: 'Features', href: '/features' },
+                { label: 'Modules', href: '/modules' },
+                { label: 'Industries', href: '/industries' },
+                { label: 'Plans', href: '/pricing' },
+                { label: 'FAQ', href: '/faq' },
+                { label: 'About Us', href: '/about' },
+                { label: 'Contact', href: '/contact' },
+              ].map((link, i) => (
+                <Link key={i} href={link.href} style={{ display: 'block', fontSize: '14px', color: 'rgba(255,255,255,0.7)', marginBottom: '10px', textDecoration: 'none' }}>{link.label}</Link>
               ))}
             </div>
 
             {/* Col 3 */}
             <div>
               <div style={{ fontSize: '16px', fontWeight: '700', marginBottom: '16px' }}>Contact Info</div>
-              <div style={{ fontSize: '13px', color: 'rgba(255,255,255,0.7)', marginBottom: '10px', display: 'flex', gap: '8px', alignItems: 'center' }}>
-                🌐 iteqsolutioncenter.com
-              </div>
-              <div style={{ fontSize: '13px', color: 'rgba(255,255,255,0.7)', marginBottom: '10px', display: 'flex', gap: '8px', alignItems: 'center' }}>
-                📞 +94776206033
-              </div>
+              <a href="https://iteqsolutioncenter.com" target="_blank" rel="noopener noreferrer" style={{ display: 'block', fontSize: '13px', color: 'rgba(255,255,255,0.7)', marginBottom: '10px', textDecoration: 'none' }}>Website: iteqsolutioncenter.com</a>
+              <a href="https://wa.me/97450761751" target="_blank" rel="noopener noreferrer" style={{ display: 'block', fontSize: '13px', color: 'rgba(255,255,255,0.7)', marginBottom: '10px', textDecoration: 'none' }}>🇶🇦 Qatar (WhatsApp): +974 5076 1751</a>
+              <a href="https://wa.me/94776206033" target="_blank" rel="noopener noreferrer" style={{ display: 'block', fontSize: '13px', color: 'rgba(255,255,255,0.7)', marginBottom: '10px', textDecoration: 'none' }}>🇱🇰 Sri Lanka (WhatsApp): +94 776 206 033</a>
             </div>
 
             {/* Col 4 */}
             <div>
               <div style={{ fontSize: '16px', fontWeight: '700', marginBottom: '16px' }}>Follow Us</div>
-              {['LinkedIn', 'Twitter', 'Facebook'].map((l, i) => (
-                <div key={i} style={{
-                  display: 'flex', gap: '8px', alignItems: 'center',
-                  color: 'rgba(255,255,255,0.7)', marginBottom: '10px',
-                  fontSize: '14px', cursor: 'pointer'
-                }}>{l}</div>
-              ))}
+              {/* FLAG: Real social URLs not yet provided — placeholder links below */}
+              <a href="#" style={{ display: 'block', color: 'rgba(255,255,255,0.7)', marginBottom: '10px', fontSize: '14px', textDecoration: 'none' }}>LinkedIn</a>
+              <a href="#" style={{ display: 'block', color: 'rgba(255,255,255,0.7)', marginBottom: '10px', fontSize: '14px', textDecoration: 'none' }}>Twitter</a>
+              <a href="#" style={{ display: 'block', color: 'rgba(255,255,255,0.7)', marginBottom: '10px', fontSize: '14px', textDecoration: 'none' }}>Facebook</a>
             </div>
           </div>
 
-          {/* Bottom bar */}
           <div style={{
             marginTop: '48px', borderTop: '1px solid rgba(255,255,255,0.15)',
             padding: '24px', textAlign: 'center',
             fontSize: '13px', color: 'rgba(255,255,255,0.5)'
           }}>
-            © 2025 iTeq Solution Center. All rights reserved.
+            © 2026 iTeq Solution Center. All rights reserved.
           </div>
         </div>
       </div>
